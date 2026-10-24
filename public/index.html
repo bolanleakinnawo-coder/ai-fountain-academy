@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>AI Fountain Academy · Practical AI skills, taught on video</title>
+    <meta
+      name="description"
+      content="Step-by-step video courses on real-time face swap, voice changing, faceless content, AI marketing, AI trading and AI SaaS. Learn at your pace on any device."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="AI Fountain Academy" />
+    <meta
+      property="og:description"
+      content="Practical AI skills, taught step by step on video."
+    />
+    <meta
+      property="og:image"
+      content="assets/img/thumbs/swap-faces-live-calls.png"
+    />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+      (function () {
+        var h = document.documentElement;
+        h.classList.add("anim");
+        setTimeout(function () {
+          if (h.classList.contains("is-ready")) return;
+          h.classList.remove("anim");
+          var l = document.querySelector(".page-loader");
+          if (l) l.classList.add("done");
+          if (location.protocol === "file:") {
+            var n = document.createElement("div");
+            n.className = "file-note";
+            n.innerHTML =
+              "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+            document.body.appendChild(n);
+          }
+        }, 3000);
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/core.css" />
+    <link rel="stylesheet" href="assets/css/landing.css" />
+  </head>
+  <body>
+    <div class="page-loader" aria-hidden="true">
+      <div class="loader-inner">
+        <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+        <div class="loader-word">
+          <span style="animation-delay: 0.05s">AI</span>&nbsp;<span
+            style="animation-delay: 0.12s"
+            >Fountain</span
+          >&nbsp;<span style="animation-delay: 0.19s; color: var(--blue)"
+            >Academy</span
+          >
+        </div>
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+
+    <div data-site-nav></div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid-bg" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <a
+              href="course.html?slug=swap-faces-live-calls"
+              class="hero-eyebrow"
+              data-reveal
+            >
+              <span class="live-dot"></span>
+              <span>Hot course: Swap Faces on Live Calls</span>
+              <span class="go">View →</span>
+            </a>
+            <h1 class="h-display" data-split>
+              Learn the AI skills people
+              <span
+                class="text-blue no-split hero-rotate"
+                data-rotate="pay for|talk about|build with|sell with"
+              ></span>
+            </h1>
+            <p class="lead hero-lead" data-reveal style="--d: 0.35s">
+              Step-by-step video courses on real-time face swaps, voice
+              changers, faceless content, AI ads, trading tools and AI software.
+              Watch on your phone or laptop and learn at your own pace.
+            </p>
+            <div class="hero-ctas" data-reveal style="--d: 0.45s">
+              <a href="signup.html" class="btn btn-primary btn-lg"
+                >Get started
+                <svg
+                  class="arrow"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M3 8h10m-4-4 4 4-4 4"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></a>
+              <a href="#courses" class="btn btn-ghost btn-lg"
+                >Explore courses</a
+              >
+            </div>
+
+            <!-- See it in action: small preview that expands to full screen -->
+            <button
+              class="action-card"
+              id="action-card"
+              data-reveal
+              style="--d: 0.65s"
+              aria-label="Play the hot course preview"
+            >
+              <span class="action-media">
+                <video
+                  id="action-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="assets/img/thumbs/swap-faces-live-calls.png"
+                >
+                  <source
+                    src="assets/video/hot-course.webm"
+                    type="video/webm"
+                  />
+                  <source src="assets/video/hot-course.mp4" type="video/mp4" />
+                </video>
+                <span class="action-play"
+                  ><svg width="16" height="16" viewBox="0 0 16 16">
+                    <path
+                      d="M4.5 2.8v10.4a.6.6 0 0 0 .9.5l8.3-5.2a.6.6 0 0 0 0-1L5.4 2.3a.6.6 0 0 0-.9.5Z"
+                      fill="currentColor"
+                    /></svg
+                ></span>
+              </span>
+              <span class="action-text">
+                <span class="mono action-kicker"
+                  ><span class="live-dot red"></span>See it in action</span
+                >
+                <strong>Our hot course, in 30 seconds</strong>
+                <span class="muted">Tap to watch full screen</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Visual: dashboard + phone mockups -->
+          <div
+            class="hero-visual"
+            aria-hidden="true"
+            data-reveal="scale"
+            style="--d: 0.25s"
+          >
+            <div class="mock-browser hero-browser" data-parallax="0.6">
+              <div class="mb-top">
+                <i></i><i></i><i></i
+                ><span class="mb-url">aifountain.academy/dashboard</span>
+              </div>
+              <div class="mb-body mock-dash">
+                <aside class="md-side">
+                  <span class="md-logo"><b></b>AI Fountain</span>
+                  <span class="md-nav on">Overview</span>
+                  <span class="md-nav">My courses</span>
+                  <span class="md-nav">Explore</span>
+                  <span class="md-nav">Account</span>
+                </aside>
+                <div class="md-main">
+                  <div class="md-hello">
+                    <small>Good evening</small
+                    ><strong>Welcome back, Ada</strong>
+                  </div>
+                  <div class="md-hot">
+                    <img
+                      src="assets/img/thumbs/swap-faces-live-calls.png"
+                      alt=""
+                    />
+                    <div>
+                      <small class="mono">Continue learning</small>
+                      <strong>Using the swap on Zoom, Meet and WhatsApp</strong>
+                      <div class="md-prog">
+                        <span style="width: 46%"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md-row">
+                    <div class="md-card">
+                      <img
+                        src="assets/img/thumbs/ai-faceless-youtube-business.png"
+                        alt=""
+                      /><span></span><span class="s"></span>
+                    </div>
+                    <div class="md-card">
+                      <img
+                        src="assets/img/thumbs/ai-for-business-and-marketing.png"
+                        alt=""
+                      /><span></span><span class="s"></span>
+                    </div>
+                    <div class="md-card">
+                      <img
+                        src="assets/img/thumbs/ai-saas-business-blueprint.png"
+                        alt=""
+                      /><span></span><span class="s"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock-phone hero-phone" data-parallax="1.2">
+              <div class="mp-notch"></div>
+              <div class="mp-screen mock-learn">
+                <div class="ml-video">
+                  <img
+                    src="assets/img/thumbs/swap-faces-live-calls.png"
+                    alt=""
+                  />
+                  <span class="ml-play"></span>
+                  <div class="ml-bar"><span></span></div>
+                </div>
+                <div class="ml-title">
+                  <small class="mono">Lesson 5 of 10</small
+                  ><strong>Using the swap on Zoom</strong>
+                </div>
+                <div class="ml-list">
+                  <span class="done">Installing the software</span>
+                  <span class="done">Loading a face model</span>
+                  <span class="on">Using the swap on Zoom</span>
+                  <span>Streaming with OBS</span>
+                  <span>Real-time voice changing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-chip chip-a" data-parallax="1.6">
+              <span class="fc-icon">✓</span
+              ><span
+                ><strong>Lesson complete</strong
+                ><small>Loading a face model</small></span
+              >
+            </div>
+            <div class="float-chip chip-b" data-parallax="0.9">
+              <span class="fc-icon blue">₦</span
+              ><span
+                ><strong>Payment confirmed</strong
+                ><small>Course unlocked</small></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee" aria-label="Skills you can learn">
+          <div class="marquee-track">
+            <span>Real-time face swap</span><span>AI voice changer</span
+            ><span>Faceless YouTube</span><span>AI voiceovers</span
+            ><span>Ad videos with AI</span><span>Product funnels</span
+            ><span>Sales automation</span><span>AI chart analysis</span
+            ><span>No-code AI apps</span><span>Digital products</span>
+            <span aria-hidden="true">Real-time face swap</span
+            ><span aria-hidden="true">AI voice changer</span
+            ><span aria-hidden="true">Faceless YouTube</span
+            ><span aria-hidden="true">AI voiceovers</span
+            ><span aria-hidden="true">Ad videos with AI</span
+            ><span aria-hidden="true">Product funnels</span
+            ><span aria-hidden="true">Sales automation</span
+            ><span aria-hidden="true">AI chart analysis</span
+            ><span aria-hidden="true">No-code AI apps</span
+            ><span aria-hidden="true">Digital products</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01 ABOUT -->
+      <section class="section about" id="about">
+        <div class="container about-grid">
+          <div>
+            <span class="eyebrow"
+              ><span class="num">01</span
+              ><span data-scramble>The academy</span></span
+            >
+            <h2 class="h2 mt" data-split>
+              Practical AI, taught on screen. No fluff, no theory dumps.
+            </h2>
+          </div>
+          <div class="about-copy">
+            <p class="lead" data-reveal>
+              AI Fountain Academy teaches the AI tools people are using right
+              now to create content, run businesses and make money online. Every
+              lesson is a screen recording you can follow click by click, pause,
+              and rewatch.
+            </p>
+            <div class="about-points">
+              <div data-reveal style="--d: 0.05s">
+                <span class="ap-num mono">A</span>
+                <h3>Video-first</h3>
+                <p>
+                  You watch the exact steps on screen, then do them yourself.
+                </p>
+              </div>
+              <div data-reveal style="--d: 0.15s">
+                <span class="ap-num mono">B</span>
+                <h3>Beginner friendly</h3>
+                <p>No coding or tech background needed for most courses.</p>
+              </div>
+              <div data-reveal style="--d: 0.25s">
+                <span class="ap-num mono">C</span>
+                <h3>Any device</h3>
+                <p>
+                  Start on your laptop, continue on your phone. Progress is
+                  saved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 COURSES -->
+      <section class="section courses-section" id="courses">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow"
+                ><span class="num">02</span
+                ><span data-scramble>Courses</span></span
+              >
+              <h2 class="h2 mt" data-split>
+                Six courses. One goal: useful AI skills.
+              </h2>
+            </div>
+            <a href="courses.html" class="btn btn-ghost"
+              >All courses
+              <svg
+                class="arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M3 8h10m-4-4 4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+          </div>
+          <div id="featured-slot"></div>
+          <div class="course-grid mt-lg" id="course-grid"></div>
+        </div>
+      </section>
+
+      <!-- 03 INSIDE THE PLATFORM -->
+      <section class="section inside" id="inside">
+        <div class="container">
+          <div class="section-head center">
+            <span class="eyebrow"
+              ><span class="num">03</span
+              ><span data-scramble>Inside the platform</span></span
+            >
+            <h2 class="h2 mt" data-split>
+              Your own learning space, on every screen.
+            </h2>
+            <p class="lead mt" data-reveal>
+              After you buy a course it appears on your dashboard. Open it,
+              press play, and pick up exactly where you stopped, on your laptop
+              or your phone.
+            </p>
+          </div>
+
+          <div class="inside-stage" id="inside-stage">
+            <div class="mock-browser inside-browser" id="inside-browser">
+              <div class="mb-top">
+                <i></i><i></i><i></i
+                ><span class="mb-url"
+                  >aifountain.academy/learn/swap-faces-live-calls</span
+                >
+              </div>
+              <div class="mb-body mock-player">
+                <div class="mpl-main">
+                  <div class="mpl-video">
+                    <img
+                      src="assets/img/thumbs/swap-faces-live-calls.png"
+                      alt=""
+                    />
+                    <span class="ml-play big"></span>
+                    <div class="mpl-controls">
+                      <span class="t mono">06:12</span>
+                      <div class="mpl-track"><span></span></div>
+                      <span class="t mono">14:40</span>
+                    </div>
+                  </div>
+                  <div class="mpl-info">
+                    <small class="mono"
+                      >Lesson 5 · Swap Faces on Live Calls</small
+                    >
+                    <strong>Using the swap on Zoom, Meet and WhatsApp</strong>
+                    <div class="mpl-btns">
+                      <span class="ghost">Previous</span
+                      ><span class="solid">Next lesson</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mpl-side">
+                  <strong>Course content</strong>
+                  <span class="done">1 · What real-time face swap is</span>
+                  <span class="done">2 · Choosing tools for your computer</span>
+                  <span class="done">3 · Installing the software</span>
+                  <span class="done">4 · Loading a face model</span>
+                  <span class="on">5 · Using the swap on Zoom</span>
+                  <span>6 · Streaming with OBS</span>
+                  <span>7 · Real-time voice changing</span>
+                  <span>8 · Making it look natural</span>
+                </div>
+              </div>
+            </div>
+            <div class="mock-phone inside-phone" id="inside-phone">
+              <div class="mp-notch"></div>
+              <div class="mp-screen mock-phone-dash">
+                <small class="mono">Good evening</small>
+                <strong>Hi, Ada</strong>
+                <div class="mpd-hot">
+                  <img
+                    src="assets/img/thumbs/swap-faces-live-calls.png"
+                    alt=""
+                  /><span>Continue · 46%</span>
+                </div>
+                <small class="mono lbl">Explore courses</small>
+                <div class="mpd-card">
+                  <img
+                    src="assets/img/thumbs/ai-faceless-product-blueprint.png"
+                    alt=""
+                  />
+                  <div><b>Faceless Product Blueprint</b><i>View course</i></div>
+                </div>
+                <div class="mpd-card">
+                  <img
+                    src="assets/img/thumbs/ai-trading-for-beginners.png"
+                    alt=""
+                  />
+                  <div><b>AI Trading for Beginners</b><i>View course</i></div>
+                </div>
+              </div>
+            </div>
+            <div class="callout callout-1" data-reveal="left">
+              <span class="dot"></span>Resume where you stopped
+            </div>
+            <div class="callout callout-2" data-reveal="right">
+              <span class="dot"></span>Lessons in the right order
+            </div>
+            <div class="callout callout-3" data-reveal="right">
+              <span class="dot"></span>Built for your phone
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 HOW IT WORKS -->
+      <section class="section how" id="how">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow"
+                ><span class="num">04</span
+                ><span data-scramble>How it works</span></span
+              >
+              <h2 class="h2 mt" data-split>
+                From sign up to your first lesson in minutes.
+              </h2>
+            </div>
+          </div>
+          <ol class="steps" id="steps">
+            <li data-reveal style="--d: 0s">
+              <span class="step-num mono">01</span>
+              <h3>Create your account</h3>
+              <p>Your name, email and a password. That's it.</p>
+            </li>
+            <li data-reveal style="--d: 0.1s">
+              <span class="step-num mono">02</span>
+              <h3>Choose a course</h3>
+              <p>Read what's inside, the topics covered and the price.</p>
+            </li>
+            <li data-reveal style="--d: 0.2s">
+              <span class="step-num mono">03</span>
+              <h3>Pay with Paystack</h3>
+              <p>
+                Card, bank transfer or USSD. Access unlocks once the payment is
+                confirmed.
+              </p>
+            </li>
+            <li data-reveal style="--d: 0.3s">
+              <span class="step-num mono">04</span>
+              <h3>Start watching</h3>
+              <p>The course appears on your dashboard. Press play.</p>
+            </li>
+          </ol>
+          <div class="steps-line" aria-hidden="true">
+            <span id="steps-line-fill"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 WHY -->
+      <section class="section why" id="why">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow"
+                ><span class="num">05</span
+                ><span data-scramble>Why learn with us</span></span
+              >
+              <h2 class="h2 mt" data-split>
+                Built around how people actually learn tools.
+              </h2>
+            </div>
+          </div>
+          <div class="why-grid">
+            <div class="why-card wide" data-reveal>
+              <div class="why-visual why-steps" aria-hidden="true">
+                <span>Open the app</span><span>Click Settings</span
+                ><span class="on">Select camera</span><span>Start call</span>
+              </div>
+              <h3>Click-by-click lessons</h3>
+              <p>
+                Each video shows the exact screens and settings, so you can
+                follow along without guessing.
+              </p>
+            </div>
+            <div class="why-card" data-reveal style="--d: 0.08s">
+              <div class="why-visual why-resume" aria-hidden="true">
+                <span class="mono">06:12</span>
+                <div><i></i></div>
+              </div>
+              <h3>Pick up where you stopped</h3>
+              <p>Your place in each lesson is saved automatically.</p>
+            </div>
+            <div class="why-card" data-reveal style="--d: 0.16s">
+              <div class="why-visual why-naira" aria-hidden="true">₦</div>
+              <h3>Pay in naira</h3>
+              <p>
+                Secure checkout through Paystack with card, transfer or USSD.
+              </p>
+            </div>
+            <div class="why-card" data-reveal style="--d: 0.08s">
+              <div class="why-visual why-devices" aria-hidden="true">
+                <span class="lap"></span><span class="ph"></span>
+              </div>
+              <h3>Learn on any screen</h3>
+              <p>Designed for phones first, comfortable on laptops.</p>
+            </div>
+            <div class="why-card" data-reveal style="--d: 0.16s">
+              <div class="why-visual why-lock" aria-hidden="true">
+                <span class="lk"></span><span class="ln"></span
+                ><span class="ln s"></span>
+              </div>
+              <h3>Your courses, protected</h3>
+              <p>
+                Lessons stream securely to your account. Buy once and the course
+                stays on your dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 FAQ -->
+      <section class="section faq" id="faq">
+        <div class="container faq-grid">
+          <div>
+            <span class="eyebrow"
+              ><span class="num">06</span
+              ><span data-scramble>Questions</span></span
+            >
+            <h2 class="h2 mt" data-split>Good to know before you start.</h2>
+            <p class="lead mt" data-reveal>
+              Something else on your mind?
+              <a class="text-blue" href="contact.html">Contact us</a>.
+            </p>
+          </div>
+          <div class="faq-list" id="faq-list">
+            <details data-reveal>
+              <summary>Do I need to be good with computers?</summary>
+              <p>
+                No. The courses are made for beginners. You'll see every step on
+                screen and can pause or rewatch any lesson.
+              </p>
+            </details>
+            <details data-reveal>
+              <summary>How do I pay?</summary>
+              <p>
+                Payments go through Paystack, so you can use a card, bank
+                transfer or USSD in naira. Your course unlocks as soon as
+                Paystack confirms the payment.
+              </p>
+            </details>
+            <details data-reveal>
+              <summary>Can I watch on my phone?</summary>
+              <p>
+                Yes. Log in from any phone, tablet or laptop and your courses
+                and progress are there.
+              </p>
+            </details>
+            <details data-reveal>
+              <summary>How long do I keep access?</summary>
+              <p>
+                Once you buy a course it stays on your dashboard, and you can
+                rewatch the lessons whenever you like.
+              </p>
+            </details>
+            <details data-reveal>
+              <summary>Do I pay once or every month?</summary>
+              <p>Once per course. There's no subscription.</p>
+            </details>
+            <details data-reveal>
+              <summary>
+                What if my payment goes through but the course doesn't unlock?
+              </summary>
+              <p>
+                It usually unlocks within seconds. If it doesn't, keep your
+                Paystack receipt and contact us; we'll check it and fix your
+                access.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="final-cta">
+        <div class="container">
+          <div class="cta-panel" data-reveal="scale">
+            <div class="cta-rings" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+            <span class="eyebrow light">Start today</span>
+            <h2 class="h1" data-split>
+              Your first AI skill is one video away.
+            </h2>
+            <p class="lead">
+              Create a free account, pick a course and start watching.
+            </p>
+            <div class="hero-ctas center">
+              <a href="signup.html" class="btn btn-lg btn-white"
+                >Create my account</a
+              >
+              <a href="courses.html" class="btn btn-lg btn-outline-light"
+                >Browse courses</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <!-- Full-screen preview player (built by home.js) -->
+    <div class="theater" id="theater" hidden>
+      <button class="theater-close" id="theater-close" aria-label="Close video">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path
+            d="m5 5 10 10M15 5 5 15"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div class="theater-frame" id="theater-frame"></div>
+      <div class="theater-caption" id="theater-caption">
+        <span class="mono">Hot course</span>
+        <strong>Swap Faces on Live Calls. Change Voices. Create Magic.</strong>
+        <a
+          href="course.html?slug=swap-faces-live-calls"
+          class="btn btn-primary btn-sm"
+          >View course</a
+        >
+      </div>
+    </div>
+
+    <script type="module" src="assets/js/pages/home.js"></script>
+  </body>
+</html>

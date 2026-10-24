@@ -1,0 +1,12 @@
+{
+  "name": "ai-fountain-academy-scripts",
+  "private": true,
+  "description": "One-off admin scripts. Run with a service account key (see README).",
+  "scripts": {
+    "seed": "node seed.js",
+    "make-admin": "node make-admin.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0"
+  }
+}

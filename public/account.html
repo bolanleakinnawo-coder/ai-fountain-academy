@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Account · AI Fountain Academy</title>
+  <meta name="description" content="Manage your AI Fountain Academy account.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div class="app">
+    <div data-app-sidebar data-active="account"></div>
+    <main class="app-main" id="main">
+      <header class="app-head"><div><p class="muted">Settings</p><h1 class="h2">Your account</h1></div></header>
+      <div class="account-grid">
+        <section class="panel">
+          <h2>Profile</h2>
+          <form id="profile-form" novalidate>
+            <div class="form-alert" id="profile-alert" role="alert"></div>
+            <div class="field" data-field="fullName"><label for="fullName">Full name</label><input class="input" id="fullName" maxlength="79" autocomplete="name"><span class="error"></span></div>
+            <div class="field"><label for="email">Email address</label><input class="input" id="email" disabled><span class="hint">Contact support to change your email.</span></div>
+            <button class="btn btn-primary" id="save-profile" type="submit">Save changes</button>
+          </form>
+        </section>
+        <section class="panel">
+          <h2>Password</h2>
+          <p class="muted">We'll email you a secure link to set a new password.</p>
+          <div class="form-alert" id="pass-alert" role="alert"></div>
+          <button class="btn btn-ghost" id="reset-pass">Email me a reset link</button>
+        </section>
+        <section class="panel wide">
+          <h2>Purchase history</h2>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Course</th><th>Amount</th><th>Status</th><th>Date</th><th>Reference</th></tr></thead>
+              <tbody id="payments"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel wide danger-zone">
+          <h2>Sign out</h2>
+          <p class="muted">Sign out of AI Fountain Academy on this device.</p>
+          <button class="btn btn-ghost" data-logout>Log out</button>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="assets/js/pages/account.js"></script>
+</body>
+</html>

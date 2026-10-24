@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lessons · Admin · AI Fountain Academy</title>
+  <meta name="description" content="Admin">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div class="admin">
+    <div data-admin-side data-active="courses"></div>
+    <main class="admin-main" id="main">
+      <header class="a-head"><div><p class="muted"><a href="admin/courses.html" class="text-blue">Courses</a> / <span id="crumb">Lessons</span></p><h1 class="h2" id="page-title">Lessons</h1></div><div class="a-head-actions"><a class="btn btn-ghost" id="edit-course" href="#">Course details</a><button class="btn btn-primary" id="add-lesson">Add lesson</button></div></header>
+      <section class="a-panel">
+        <p class="muted" style="margin-bottom:14px">Drag to reorder, or use the arrows. Only published lessons are visible to learners.</p>
+        <ol class="lesson-rows" id="lesson-rows"></ol>
+      </section>
+      <dialog class="sheet" id="lesson-sheet">
+        <form id="lesson-form" method="dialog" novalidate>
+          <div class="sheet-head"><h2 id="sheet-title">Add lesson</h2><button type="button" class="icon-btn" id="sheet-close" aria-label="Close">×</button></div>
+          <div class="sheet-body">
+            <div class="form-alert error" id="lesson-alert"></div>
+            <div class="field" data-field="lessonTitle"><label for="lessonTitle">Lesson title</label><input class="input" id="lessonTitle" maxlength="140" required><span class="error"></span></div>
+            <div class="field"><label for="lessonDesc">Description</label><textarea class="textarea" id="lessonDesc" rows="3" maxlength="1500"></textarea></div>
+            <div class="field"><label for="lessonStatus">Status</label><select class="select" id="lessonStatus"><option value="draft">Draft (hidden)</option><option value="published">Published</option></select></div>
+            <div class="field"><label>Video</label>
+              <div class="video-drop" id="video-drop"><input type="file" id="video-file" accept="video/mp4,video/webm,video/quicktime" aria-label="Video file"><strong id="video-label">Choose a video file</strong><span class="muted" id="video-sub">MP4 recommended. Stored privately; learners only get short-lived links.</span></div>
+              <div class="upload-bar hidden" id="video-bar"><span></span></div>
+              <span class="hint" id="video-current"></span>
+            </div>
+          </div>
+          <div class="sheet-foot"><button type="button" class="btn btn-ghost" id="sheet-cancel">Cancel</button><button class="btn btn-primary" id="lesson-save" type="submit">Save lesson</button></div>
+        </form>
+      </dialog>
+    </main>
+  </div>
+  <script type="module" src="assets/js/pages/admin-lessons.js"></script>
+</body>
+</html>

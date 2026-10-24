@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Courses · AI Fountain Academy</title>
+  <meta name="description" content="Browse all AI Fountain Academy video courses.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/landing.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div data-site-nav></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-scramble>All courses</span>
+        <h1 class="h1 mt" data-split>Pick a skill. Press play.</h1>
+        <p class="lead mt" data-reveal>Every course is a set of step-by-step video lessons. Buy once and it lives on your dashboard.</p>
+        <div class="filter-bar" data-reveal>
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input class="input" id="search" type="search" placeholder="Search courses" aria-label="Search courses">
+          </div>
+          <div class="cat-chips" id="cat-chips" role="tablist" aria-label="Categories"></div>
+        </div>
+      </div>
+    </section>
+    <section class="container" style="padding-bottom:120px">
+      <div id="featured-slot"></div>
+      <div class="course-grid mt-lg" id="course-grid"></div>
+      <div id="no-results" class="empty-state hidden"><h3>No courses match that search</h3><p>Try another word or clear the filter.</p><button class="btn btn-ghost" id="clear">Clear search</button></div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="assets/js/pages/courses.js"></script>
+</body>
+</html>

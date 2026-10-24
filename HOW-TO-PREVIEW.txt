@@ -1,0 +1,32 @@
+HOW TO OPEN AI FOUNTAIN ACADEMY ON YOUR COMPUTER
+================================================
+
+Don't double-click the .html files. Browsers block a website's scripts when
+a file is opened straight from disk (file:///...), so the menus, courses and
+logins can't load. Run the site through a small local web server instead.
+Pick ONE of the options below.
+
+OPTION A: VS Code (easiest)
+  1. Open the "ai-fountain-academy" folder in VS Code.
+  2. Install the "Live Server" extension (by Ritwick Dey).
+  3. In the file list, right-click  public/index.html  ->  "Open with Live Server".
+  4. Your browser opens the site, usually at http://127.0.0.1:5500/public/index.html
+
+OPTION B: Double-click the preview script (needs Node.js from nodejs.org)
+  Windows:      double-click  preview-windows.bat
+  Mac:          double-click  preview-mac.command  (first time: right-click -> Open)
+  Then open  http://localhost:3000  in your browser.
+
+OPTION C: Terminal
+  npx serve public          (then open http://localhost:3000)
+  or: python -m http.server 3000 --directory public
+
+PREVIEW MODE
+  Until you paste your Firebase config into  public/assets/js/config.js,
+  the site runs on built-in sample data. You can sign up with any email,
+  see the dashboard, open a course and play the sample lesson video.
+  Nothing is saved and payments are switched off. A small "Preview mode"
+  note sits in the bottom-left corner.
+
+  Once you add your real Firebase config, preview mode turns off by itself,
+  and real accounts, the database and payments take over. See README.md.

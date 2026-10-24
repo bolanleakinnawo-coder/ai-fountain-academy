@@ -1,0 +1,17 @@
+{
+  "name": "ai-fountain-academy-functions",
+  "private": true,
+  "description": "Trusted server code: Paystack checkout and webhooks, signed video playback, admin actions.",
+  "main": "index.js",
+  "engines": { "node": "20" },
+  "scripts": {
+    "serve": "firebase emulators:start --only functions,firestore,auth,storage",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.1.0"
+  }
+}

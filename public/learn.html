@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Learning · AI Fountain Academy</title>
+  <meta name="description" content="Watch your AI Fountain Academy course.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/learn.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div class="learn" id="learn">
+    <header class="learn-top">
+      <a href="dashboard.html" class="back" aria-label="Back to dashboard"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="m10 3-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dashboard</span></a>
+      <div class="lt-title" id="lt-title"><span class="skel skel-line" style="width:240px;display:inline-block;background:#1b2133"></span></div>
+      <div class="lt-progress" id="lt-progress"></div>
+    </header>
+    <div class="learn-body" id="learn-body">
+      <main class="stage">
+        <div class="player" id="player"><div class="player-loading"><span class="spinner"></span></div></div>
+        <div class="lesson-info" id="lesson-info"></div>
+      </main>
+      <aside class="curriculum" id="curriculum" aria-label="Course content"></aside>
+    </div>
+  </div>
+  <script type="module" src="assets/js/pages/learn.js"></script>
+</body>
+</html>

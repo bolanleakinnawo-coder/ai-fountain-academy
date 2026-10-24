@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+body{width:1280px;height:720px;overflow:hidden;background:#07144a;font-family:"Inter Display",Inter,sans-serif;color:#fff}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;animation:pan 20s linear forwards}
+@keyframes pan{to{background-position:0 128px}}
+.glow{position:absolute;width:1000px;height:1000px;border-radius:50%;left:50%;top:50%;margin:-500px;background:radial-gradient(circle,rgba(31,91,255,.5),transparent 60%);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.12)}}
+.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0}
+.s1{animation:show 0s 0s forwards,hide .6s 4.2s forwards}
+.s2{animation:show .6s 4.4s forwards,hide .6s 10.4s forwards}
+.s3{animation:show .6s 10.6s forwards,hide .6s 15.4s forwards}
+.s4{animation:show .6s 15.6s forwards}
+@keyframes show{to{opacity:1}}@keyframes hide{from{opacity:1}to{opacity:0}}
+.kick{font-family:"DejaVu Sans Mono",monospace;letter-spacing:.2em;font-size:18px;color:#9fb9ff;text-transform:uppercase;text-align:center}
+.big{font-size:104px;font-weight:800;letter-spacing:-.05em;line-height:1;text-align:center}
+.big em{font-style:normal;color:#5d8bff}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em}
+.w>span{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes up{to{transform:none}}
+.fade{opacity:0;animation:show .8s forwards}
+.call{position:relative;width:860px;height:420px;border-radius:28px;background:#0d1d63;border:2px solid #2c4bb8;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:22px}
+.tile{position:relative;border-radius:18px;background:#132a86;overflow:hidden;display:grid;place-items:center}
+.tile.b{background:#1f5bff}
+.tile svg{width:220px}
+.live{position:absolute;top:16px;left:16px;background:#ff3b3b;font:700 15px "DejaVu Sans Mono";padding:6px 12px;border-radius:20px;display:flex;gap:8px;align-items:center}
+.live i{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+.scan{position:absolute;left:0;right:0;height:4px;background:#9fb9ff;box-shadow:0 0 24px #9fb9ff;top:0;animation:scan 1.6s ease-in-out 5s 3 alternate}
+@keyframes scan{to{top:100%}}
+.morph-a{animation:fadeout .8s 7s forwards}.morph-b{position:absolute;opacity:0;animation:show .8s 7s forwards}
+@keyframes fadeout{to{opacity:0}}
+.cap{position:absolute;bottom:56px;left:0;right:0;text-align:center;font-size:30px;font-weight:600;letter-spacing:-.02em}
+.wave{display:flex;gap:10px;align-items:center;height:240px}
+.wave i{width:16px;border-radius:8px;background:#fff;animation:wv 1s ease-in-out infinite alternate}
+@keyframes wv{from{height:20px;background:#5d8bff}to{height:var(--h);background:#fff}}
+.thumb{width:560px;border-radius:20px;box-shadow:0 40px 80px rgba(0,0,0,.4);transform:scale(.9);opacity:0;animation:pop 1s cubic-bezier(.16,1,.3,1) 16.6s forwards}
+@keyframes pop{to{transform:none;opacity:1}}
+.cta{margin-top:28px;display:inline-flex;gap:12px;align-items:center;background:#1f5bff;padding:16px 28px;border-radius:999px;font-weight:700;font-size:24px}
+.brand{position:absolute;left:48px;top:40px;display:flex;gap:12px;align-items:center;font-weight:700;font-size:22px}
+.brand i{width:22px;height:22px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:#fff}
+</style></head><body>
+<div class="glow"></div><div class="grid"></div>
+<div class="brand"><i></i>AI Fountain Academy</div>
+
+<div class="scene s1"><div>
+  <div class="kick fade" style="animation-delay:.3s">Hot course</div>
+  <div class="big" style="margin-top:24px"><span class="w"><span style="animation-delay:.6s">Swap</span></span> <span class="w"><span style="animation-delay:.72s">faces</span></span><br><span class="w"><span style="animation-delay:.84s">on</span></span> <span class="w"><span style="animation-delay:.96s"><em>live</em></span></span> <span class="w"><span style="animation-delay:1.08s"><em>calls.</em></span></span></div>
+</div></div>
+
+<div class="scene s2"><div style="display:grid;justify-items:center;gap:30px">
+  <div class="call">
+    <div class="tile"><span class="live"><i></i>LIVE</span>
+      <svg viewBox="0 0 200 220" fill="none" stroke="#bcd0ff" stroke-width="6" stroke-linecap="round"><path d="M100 20c-40 0-64 30-64 74 0 48 28 86 64 86s64-38 64-86c0-44-24-74-64-74Z"/><path d="M30 220c10-30 36-44 70-44s60 14 70 44"/></svg>
+      <div class="scan"></div>
+    </div>
+    <div class="tile b">
+      <svg class="morph-a" viewBox="0 0 200 220" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M100 20c-40 0-64 30-64 74 0 48 28 86 64 86s64-38 64-86c0-44-24-74-64-74Z"/><path d="M30 220c10-30 36-44 70-44s60 14 70 44"/></svg>
+      <svg class="morph-b" viewBox="0 0 200 220" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M100 14c-36 0-62 26-62 68 0 22 5 36 5 36-8 7-10 17-5 26 5 12 17 14 17 14 10 26 26 38 45 38s38-14 48-40c0 0 12-2 17-14 5-9 2-19-5-26 0 0 5-14 5-36 0-42-29-66-65-66Z"/><path d="M30 220c10-30 36-44 70-44s60 14 70 44"/></svg>
+    </div>
+  </div>
+  <div class="cap" style="position:static">Real-time face swap on Zoom, Meet and WhatsApp</div>
+</div></div>
+
+<div class="scene s3"><div style="display:grid;justify-items:center;gap:20px">
+  <div class="kick">Voice changer</div>
+  <div class="wave">
+    <script>document.write(Array.from({length:28},(_,i)=>`<i style="--h:${60+Math.round(Math.abs(Math.sin(i*1.7))*170)}px;animation-delay:${(i%7)*0.09}s"></i>`).join(""))</script>
+  </div>
+  <div class="big" style="font-size:72px"><span class="w"><span style="animation-delay:11.2s">Change</span></span> <span class="w"><span style="animation-delay:11.32s">your</span></span> <span class="w"><span style="animation-delay:11.44s"><em>voice</em></span></span> <span class="w"><span style="animation-delay:11.56s">live.</span></span></div>
+</div></div>
+
+<div class="scene s4"><div style="display:grid;justify-items:center">
+  <div class="big" style="font-size:80px;margin-bottom:34px"><span class="w"><span style="animation-delay:15.9s">Create</span></span> <span class="w"><span style="animation-delay:16.05s"><em>magic.</em></span></span></div>
+  <img class="thumb" src="../public/assets/img/thumbs/swap-faces-live-calls.png">
+  <div class="cta fade" style="animation-delay:17.6s">Watch the full course on AI Fountain Academy →</div>
+</div></div>
+</body></html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Edit course · Admin · AI Fountain Academy</title>
+  <meta name="description" content="Admin">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div class="admin">
+    <div data-admin-side data-active="courses"></div>
+    <main class="admin-main" id="main">
+      <header class="a-head"><div><p class="muted"><a href="admin/courses.html" class="text-blue">Courses</a> / <span id="crumb">New course</span></p><h1 class="h2" id="page-title">New course</h1></div><div class="a-head-actions" id="head-actions"></div></header>
+      <form id="course-form" class="a-form" novalidate>
+        <div class="a-form-main">
+          <section class="a-panel">
+            <h2>Basics</h2>
+            <div class="field" data-field="title"><label for="title">Title</label><input class="input" id="title" required maxlength="140"><span class="error"></span></div>
+            <div class="two">
+              <div class="field" data-field="shortTitle"><label for="shortTitle">Short title</label><input class="input" id="shortTitle" maxlength="60"><span class="hint">Used on cards. Optional.</span></div>
+              <div class="field" data-field="slug"><label for="slug">URL slug</label><input class="input" id="slug" required pattern="[a-z0-9-]+"><span class="hint">/courses/<b id="slug-preview">…</b></span><span class="error"></span></div>
+            </div>
+            <div class="field" data-field="shortDescription"><label for="shortDescription">Short description</label><textarea class="textarea" id="shortDescription" rows="2" maxlength="240" style="min-height:76px"></textarea></div>
+            <div class="field"><label for="summary30s">In 30 seconds</label><textarea class="textarea" id="summary30s" rows="3" maxlength="600"></textarea></div>
+            <div class="field"><label for="overview">Course overview</label><textarea class="textarea" id="overview" rows="6" maxlength="4000"></textarea></div>
+          </section>
+          <section class="a-panel">
+            <h2>Learning</h2>
+            <div class="field"><label for="objectives">What you will learn</label><textarea class="textarea" id="objectives" rows="6"></textarea><span class="hint">One per line.</span></div>
+            <div class="field"><label for="contents">Course content topics</label><textarea class="textarea" id="contents" rows="6"></textarea><span class="hint">One per line. Shown on the course page until video lessons are published.</span></div>
+          </section>
+        </div>
+        <aside class="a-form-side">
+          <section class="a-panel">
+            <h2>Publishing</h2>
+            <div class="field"><label for="status">Status</label><select class="select" id="status"><option value="draft">Draft (hidden)</option><option value="published">Published</option></select></div>
+            <label class="check"><input type="checkbox" id="featured"> Featured as the hot course (No. 1)</label>
+            <div class="field"><label for="sortOrder">Display order</label><input class="input" id="sortOrder" type="number" min="0" step="1" value="10"></div>
+          </section>
+          <section class="a-panel">
+            <h2>Price and details</h2>
+            <div class="field" data-field="price"><label for="price">Price (₦)</label><input class="input" id="price" type="number" min="0" step="1" inputmode="decimal" required><span class="error"></span></div>
+            <div class="field"><label for="category">Category</label><input class="input" id="category" list="cat-list" maxlength="60"><datalist id="cat-list"></datalist></div>
+            <div class="field"><label for="tags">Tags</label><input class="input" id="tags" placeholder="Face swap, Voice changing"><span class="hint">Comma separated.</span></div>
+            <div class="two">
+              <div class="field"><label for="difficulty">Difficulty</label><select class="select" id="difficulty"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+              <div class="field"><label for="language">Language</label><input class="input" id="language" value="English"></div>
+            </div>
+          </section>
+          <section class="a-panel">
+            <h2>Thumbnail</h2>
+            <div class="thumb-drop" id="thumb-drop">
+              <img id="thumb-preview" alt="" class="hidden">
+              <div class="td-empty" id="thumb-empty"><strong>Upload a thumbnail</strong><span>1280×720 PNG or JPG, under 5 MB</span></div>
+              <input type="file" id="thumb-file" accept="image/png,image/jpeg,image/webp" aria-label="Thumbnail file">
+            </div>
+            <div class="upload-bar hidden" id="thumb-bar"><span></span></div>
+          </section>
+        </aside>
+        <div class="save-bar"><span class="muted" id="save-state"></span><button class="btn btn-primary" id="save" type="submit">Save course</button></div>
+      </form>
+    </main>
+  </div>
+  <script type="module" src="assets/js/pages/admin-course.js"></script>
+</body>
+</html>

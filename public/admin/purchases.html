@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Purchases · Admin · AI Fountain Academy</title>
+  <meta name="description" content="Admin">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    /* Animations run only when the page scripts start. If they can't (for example
+       the file was opened straight from disk), show the content and explain why. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("anim");
+      setTimeout(function () {
+        if (h.classList.contains("is-ready")) return;
+        h.classList.remove("anim");
+        var l = document.querySelector(".page-loader");
+        if (l) l.classList.add("done");
+        if (location.protocol === "file:") {
+          var n = document.createElement("div");
+          n.className = "file-note";
+          n.innerHTML = "<strong>Open this site through a local server, not by double-clicking</strong>Browsers block a website's scripts when the HTML file is opened straight from your computer, so menus, courses and logins can't load. In VS Code, install the <code>Live Server</code> extension, right-click <code>public/index.html</code> and choose <code>Open with Live Server</code>. Full steps are in <code>HOW-TO-PREVIEW.txt</code>.";
+          document.body.appendChild(n);
+        }
+      }, 3000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-drop"><i></i><i></i><i></i><b></b></div>
+      <div class="loader-word"><span style="animation-delay:.05s">AI</span>&nbsp;<span style="animation-delay:.12s">Fountain</span>&nbsp;<span style="animation-delay:.19s;color:var(--blue)">Academy</span></div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <div class="admin">
+    <div data-admin-side data-active="purchases"></div>
+    <main class="admin-main" id="main">
+      <header class="a-head"><div><p class="muted">Admin</p><h1 class="h2">Purchases</h1></div></header>
+      <section class="a-panel">
+        <div class="a-toolbar"><select class="select" id="status-filter" style="max-width:220px"><option value="">All statuses</option><option value="success">Paid</option><option value="pending">Pending</option><option value="failed">Failed</option><option value="abandoned">Not completed</option><option value="initialized">Started</option></select></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Learner</th><th>Course</th><th>Amount</th><th>Status</th><th>Reference</th><th>Date</th></tr></thead><tbody id="rows"></tbody></table></div>
+        <div class="load-more"><button class="btn btn-ghost hidden" id="more">Load more</button></div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="assets/js/pages/admin-purchases.js"></script>
+</body>
+</html>

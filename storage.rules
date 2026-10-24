@@ -1,0 +1,34 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() { return request.auth != null && request.auth.token.admin == true; }
+
+    // Course thumbnails and the landing-page preview clip are public.
+    match /thumbnails/{file=**} {
+      allow read: if true;
+      allow write: if isAdmin()
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+    match /public/{file=**} {
+      allow read: if true;
+      allow write: if isAdmin() && request.resource.size < 200 * 1024 * 1024;
+    }
+
+    // Lesson videos are PRIVATE. Nobody reads them directly; learners get a
+    // short-lived signed URL from the getPlaybackUrl Cloud Function after an
+    // entitlement check.
+    match /lesson-videos/{file=**} {
+      allow read: if isAdmin();
+      allow write: if isAdmin()
+        && request.resource.size < 4 * 1024 * 1024 * 1024
+        && request.resource.contentType.matches('video/.*');
+      allow delete: if isAdmin();
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

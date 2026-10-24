@@ -1,0 +1,8 @@
+node_modules/
+.firebaserc
+functions/.env
+functions/.env.*
+!functions/.env.example
+service-account.json
+*.log
+.DS_Store
