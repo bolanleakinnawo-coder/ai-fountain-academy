@@ -30,3 +30,12 @@ PREVIEW MODE
 
   Once you add your real Firebase config, preview mode turns off by itself,
   and real accounts, the database and payments take over. See README.md.
+
+PUTTING IT ONLINE (to test on your phone)
+  The website files live in the  public/  folder. Every host needs to know that.
+  - Netlify: drag the  public  folder onto app.netlify.com/drop, or connect the
+    repo (netlify.toml already tells Netlify to use public/).
+  - Vercel: import the repo. vercel.json already tells Vercel to use public/.
+  - GitHub Pages / any other host: upload as-is. The index.html at the top level
+    forwards visitors to public/index.html automatically.
+  - Firebase Hosting: firebase deploy --only hosting (already set to public/).

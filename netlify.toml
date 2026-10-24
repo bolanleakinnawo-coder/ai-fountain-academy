@@ -1,0 +1,8 @@
+# Netlify serves the site from the public/ folder.
+[build]
+  publish = "public"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

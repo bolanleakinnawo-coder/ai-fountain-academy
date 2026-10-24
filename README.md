@@ -20,6 +20,8 @@ Until you paste your Firebase config into `public/assets/js/config.js`, the site
 
 All links and file paths are relative, so the site works at a domain root, in a subfolder and on Firebase Hosting.
 
+**Quick hosting for a phone preview.** The site lives in `public/`. `netlify.toml` and `vercel.json` already point Netlify and Vercel there, and on Netlify Drop you can drag in the `public` folder itself. On GitHub Pages or any other host, the top-level `index.html` forwards visitors to `public/index.html`.
+
 ## 1. Folder structure
 
 ```
